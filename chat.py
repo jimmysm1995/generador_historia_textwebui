@@ -36,6 +36,38 @@ def get_max_tokens():
         print("Opción no válida, se usará longitud media por defecto.")
         return 200
 
+def get_top_p():
+    print("Seleccione un valor para aumentar la diversidad del texto generado:")
+    print("a) 0.9 (Alta diversidad)")
+    print("b) 0.7 (Diversidad media)")
+    print("c) 0.5 (Baja diversidad)")
+    choice = input("Ingrese su elección (a/b/c): ").strip().lower()
+    if choice == 'a':
+        return 0.9
+    elif choice == 'b':
+        return 0.7
+    elif choice == 'c':
+        return 0.5
+    else:
+        print("Opción no válida, se usará diversidad media por defecto.")
+        return 0.7
+
+def get_frequency_penalty():
+    print("Seleccione un valor para penalizar la repetición de palabras:")
+    print("a) 0.0 (Sin penalización)")
+    print("b) 0.5 (Penalización media)")
+    print("c) 1.0 (Alta penalización)")
+    choice = input("Ingrese su elección (a/b/c): ").strip().lower()
+    if choice == 'a':
+        return 0.0
+    elif choice == 'b':
+        return 0.5
+    elif choice == 'c':
+        return 1.0
+    else:
+        print("Opción no válida, se usará penalización media por defecto.")
+        return 0.5
+
 while True:
     main_character = input("Introduzca el nombre del personaje principal: ")
     second_character = input("Introduzca el nombre del personaje secundario: ")
@@ -46,13 +78,15 @@ while True:
 
     temperature = get_temperature()
     max_tokens = get_max_tokens()
+    top_p = get_top_p()
+    frequency_penalty = get_frequency_penalty()
 
     body = {
         "prompt": user_message,
-        "max_tokens": 200,
+        "max_tokens": max_tokens,
         "temperature": temperature,
-        "top_p": 1.0,
-        "frequency_penalty": 0.0
+        "top_p": top_p,
+        "frequency_penalty": frequency_penalty
     }
 
     response = requests.post(url=url , headers=headers, json=body)
