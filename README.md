@@ -22,7 +22,7 @@ Este programa es una aplicación en Python que permite generar historias persona
 - **Nombre del personaje principal**: El usuario introduce el nombre del personaje principal de la historia.
 - **Nombre del personaje secundario**: El usuario introduce el nombre del personaje secundario de la historia.
 - **Lugar de la historia**: El usuario introduce el lugar donde transcurrirá la historia.
-- **Acción importante**: El usuario introduce una acción importante que acontecerá en la historia.
+- **Acción importante**: El usuario introduce una acción relevante que acontecerá en la historia.
   
 ### Selección de Parámetros del Modelo:  
 - **Creatividad (temperature)**: El usuario selecciona el nivel de creatividad del texto generado (alta, media o baja).
@@ -35,9 +35,20 @@ Este programa es una aplicación en Python que permite generar historias persona
 - Envía una solicitud POST a un servidor local que ejecuta el modelo de lenguaje.
 - Recibe y muestra la historia generada por el modelo.
  
-### Ejecución del Programa
-El programa se ejecuta en un bucle continuo, permitiendo al usuario generar múltiples historias sin necesidad de reiniciar la aplicación. Cada iteración del bucle solicita al usuario que introduzca los datos y seleccione los parámetros, y luego muestra la historia generada.
-### Requisitos
+## Ejecución del Programa
+El programa se ejecuta en un bucle continuo, permitiendo al usuario generar múltiples historias sin necesidad de reiniciar la aplicación. 
+Cada iteración del bucle solicita al usuario que introduzca los datos y seleccione los parámetros, y luego muestra la historia generada.
+
+- Primer paso: Ejecutar el programa `generador_historia.py` en la terminal.
+- Segundo paso: Introducir los datos del usuario.
+![Diagrama del proyecto](images/datos_historia.png)
+- Tercer paso: Seleccionar los parámetros del modelo.
+![Diagrama del proyecto](images/parametros_historia.png)
+- Cuarto paso: Mostrar la historia generada.
+![Diagrama del proyecto](images/historia_generada.png)
+
+## Requisitos
 - Python 3.x
 - Biblioteca requests
 - Servidor local ejecutando el modelo de lenguaje en http://127.0.0.1:5000/v1/completions
+
