@@ -89,6 +89,7 @@ while True:
         "frequency_penalty": frequency_penalty
     }
 
+
     response = requests.post(url=url , headers=headers, json=body)
     mesagge = json.loads(response.content.decode('utf-8'))
     assistant_message = mesagge['choices'][0]['text']
